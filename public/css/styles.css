@@ -1,4 +1,140 @@
 body {
-  background: steelblue;
+  background: white;
   color: white;
 }
+/* public/css/styles.css */
+.container {
+  padding: 20px;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.car-card {
+  flex: 1 1 auto;
+  margin: 0 5px;
+  width:auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.car-image {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+  object-fit: cover; /* Ensure the image covers the container */
+
+}
+
+.car-info {
+  padding: 10px;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 599px) {
+  .car-card {
+    width: 100%; /* Full width for small screens */
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .car-card {
+    width: 50%; /* Half width for medium screens */
+  }
+}
+
+@media (min-width: 900px) {
+  .car-card {
+    width: 33.33%; /* Third width for larger screens */
+  }
+}
+
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensure the image covers the container */
+}
+
+.card .modelName {
+  font-size: 1.5em;
+  color: #555;
+  margin: 0.5em 0;
+}
+
+.card .id {
+  font-size: 2.5em;
+  color: #555;
+  margin: 0.5em 0;
+}
+
+.card .bodyType,
+.card .modelType {
+  font-size: 1em;
+  color: #555;
+}
+
+.card .buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+/* Slider controls */
+.slider-controls {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ddd;
+  border: none;
+  cursor: pointer;
+}
+
+.slider-dot.active {
+  background-color: #0070f3;
+}
+
+
