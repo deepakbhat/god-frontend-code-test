@@ -1,14 +1,5 @@
-// components/CarCard.tsx
 import React from 'react';
-import { Flex, Row, Link, Grid, Block, Text, Spacer, Card} from 'vcc-ui';
-// import '@volvo-cars/css/font-face.css';
-interface Car {
-  imageUrl: string;
-  modelName: string;
-  bodyType: string;
-  modelType: string;
-  id: string;
-}
+import { Row, Link, Grid, Block, Text, Spacer } from 'vcc-ui';
 
 interface CarCardProps {
   car: Car;
@@ -17,8 +8,7 @@ interface CarCardProps {
 const CarCard: React.FC<CarCardProps> = ({ car }) => {
   return (
     <div className="car-card">
-{/* <Card> */}
-      <Block extend={{ textAlign: 'left' }}>
+      <Block extend={{ textAlign: 'left', marginLeft: '5px', marginBlock: '5px', paddingBlockStart: '5px' }}>
         <Grid>
           <Row align="start">
             <Text variant="hillary" subStyle="standard">
@@ -26,42 +16,37 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
             </Text>
           </Row>
         </Grid>
-        <Spacer/>
+        <Spacer />
         <Grid>
           <Row align="start">
             <Text variant="hillary" subStyle="emphasis">
               {car.modelName}
             </Text>
-            <Spacer/>
+            <Spacer />
             <Text variant="hillary" subStyle="standard">
               {car.modelType}
             </Text>
           </Row>
         </Grid>
-
       </Block>
-      <img src={car.imageUrl} className="car-image" alt={car.modelName} />
-      <h2 className="modelName">{car.modelName}</h2>
-
-
+      <div className="car-iamge-wrapper">
+        <img src={car.imageUrl} className="car-image" alt={car.modelName} />
+      </div>
       <div className="stack-text">
         <Grid>
           <Row align="center">
-            <Link className="button-text" arrow="right" href="#top">
+            <Link className="button-text" arrow="right" href={`/learn/${car.id}`}>
               LEARN
             </Link>
-            <Spacer/>
-            <Spacer/>
-            <Link className="button-text" arrow="right" href="#top">
+            <Spacer />
+            <Spacer />
+            <Spacer />
+            <Link className="button-text" arrow="right" href={`/shop/${car.id}`}>
               SHOP
             </Link>
           </Row>
-
         </Grid>
-
-
       </div>
-      {/* </Card> */}
     </div>
   );
 };

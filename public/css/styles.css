@@ -1,10 +1,16 @@
 body {
   background: white;
   color: white;
+  display: flex;
 }
-/* public/css/styles.css */
+
 .container {
-  padding: 20px;
+  padding: 10px;
+}
+
+.wrapper {
+  padding: 5px;
+  margin: 5px
 }
 
 .carousel {
@@ -18,82 +24,77 @@ body {
   display: flex;
   transition: transform 0.3s ease;
   width: 100%;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 .car-card {
   flex: 1 1 auto;
+  justify-content: space-between;
   margin: 0 5px;
-  width:auto;
+  width: auto;
   background-color: #fff;
-  border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  text-align: left;
+}
+
+.car-image-wrapper {
+  overflow: hidden;
+  position: relative;
 }
 
 .car-image {
   width: 100%;
   height: auto;
   border-bottom: 1px solid #ddd;
-  object-fit: cover; /* Ensure the image covers the container */
-
+  transition: transform 0.5s ease;
 }
 
-.car-info {
-  padding: 10px;
+.car-image-wrapper:hover .car-image {
+  transform: scale(1.4);
 }
 
 .nav-button {
-  position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #0070f3;
   color: white;
   border: none;
-  padding: 10px;
+  padding: 5px;
   cursor: pointer;
   z-index: 1;
 }
 
-
-.prev {
-  left: 0;
+.carouself {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.next {
-  right: 0;
-}
-
-/* Responsive Styles */
-@media (max-width: 599px) {
-  .car-card {
-    width: 100%; /* Full width for small screens */
-  }
-}
-
-@media (min-width: 600px) and (max-width: 899px) {
-  .car-card {
-    width: 50%; /* Half width for medium screens */
-  }
-}
-
-@media (min-width: 900px) {
-  .car-card {
-    width: 33.33%; /* Third width for larger screens */
-  }
-}
-
-
-.card img {
+.carouself-inner {
+  display: flex;
+  transition: transform 0.3s ease;
   width: 100%;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.filterbar {
+  right: 0%;
+  display: flex;
+  align-items: right;
+  position: relative;
+  width: 30%;
+  padding: 5px;
+  margin: 5px;
   height: auto;
-  object-fit: cover; /* Ensure the image covers the container */
 }
 
 .card .modelName {
   font-size: 1.5em;
   color: #555;
   margin: 0.5em 0;
+  justify-content: space-between;
 }
 
 .card .id {
@@ -114,7 +115,6 @@ body {
   padding: 10px;
 }
 
-/* Slider controls */
 .slider-controls {
   position: absolute;
   bottom: 10px;
@@ -137,4 +137,45 @@ body {
   background-color: #0070f3;
 }
 
+.learn-more {
+  display: flex;
+  text-align: center;
+  font-size: 1.5em;
+  color: #555;
+  margin: 0.5em 0;
+  justify-content: space-between;
+}
 
+.carDetails {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+  border-radius: 8px;
+}
+
+.modelName {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.modelType {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+@media (max-width: 599px) {
+  .car-card {
+    width: 100%;
+  }
+}
+
+@media (min-width: 900px) {
+  .car-card {
+    width: 33.33%;
+  }
+}
